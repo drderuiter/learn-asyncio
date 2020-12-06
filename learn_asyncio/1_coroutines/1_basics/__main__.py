@@ -1,7 +1,8 @@
 import asyncio
 import logging
 from time import sleep
-LOGGER = logging.getLogger(__name__)
+
+from learn_asyncio import configure_logging
 
 
 async def my_coroutine_function() -> int:
@@ -19,24 +20,19 @@ async def my_coroutine_function() -> int:
     Returns:
         The Answer to the Ultimate Question of Life, The Universe, and Everything.
     """
-    LOGGER.info("Calculating The Answer...")
+    logging.info("Calculating The Answer...")
     sleep(0.5)
     return 42
 
 
 async def main():
-    LOGGER.info("Type of my_coroutine_function: %s", type(my_coroutine_function))
+    logging.info("Type of my_coroutine_function: %s", type(my_coroutine_function))
     my_coroutine = my_coroutine_function()
-    LOGGER.info("Type of my_coroutine: %s", type(my_coroutine))
+    logging.info("Type of my_coroutine: %s", type(my_coroutine))
 
     result = await my_coroutine
     assert result == await my_coroutine_function() == 42
 
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s.%(msecs)03d - line %(lineno)2s: %(funcName)30s() - %(message)s",
-    datefmt="%H:%M:%S"
-)
-
+configure_logging()
 asyncio.run(main())  # The entrypoint for asyncio programs.
