@@ -39,4 +39,4 @@ logging.basicConfig(
     datefmt="%H:%M:%S"
 )
 
-asyncio.run(main())
+asyncio.run(main())  # The entrypoint for asyncio programs.

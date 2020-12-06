@@ -14,13 +14,13 @@ async def blocking_coroutine():
 async def non_blocking_coroutine():
     LOGGER.info("Start ...")
     # Control is passed to the event loop... but it has nothing else to run!
-    await asyncio.sleep(0.5)
+    await asyncio.sleep(0.5)  # In a real program: await download_large_file()
     LOGGER.info("... done!")
 
 
 async def main():
     # These "await" lines run in order. Awaiting passes control to the event loop,
-    # but it "blocks" the coroutine function like a normal line of code would.
+    # but it "blocks" main() like a normal line of code would.
     await blocking_coroutine()
     await blocking_coroutine()
     await non_blocking_coroutine()

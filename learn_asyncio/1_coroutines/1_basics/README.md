@@ -1,4 +1,4 @@
-# Awaitables - Coroutines
+# Coroutines - Basics
 
 Use this file to see for yourself how:
 
