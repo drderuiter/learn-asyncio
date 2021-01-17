@@ -18,7 +18,7 @@ async def download_file(task_id: int, file_size: int, raise_error: bool = False)
 
 
 async def main():
-    """Download 3 large files, concurrently."""
+    """Download 3 large files, concurrently, using gather."""
 
     "Run three coroutines without having to create Tasks explicitly. Easy!"
     for result in await asyncio.gather(
