@@ -1,4 +1,4 @@
-### Tasks
+# Tasks
 
 If we had only coroutines and no Tasks, we could only write sequential programs. We found that out the hard way in the previous chapter. The "other things" that the event loop may run while awaiting a coroutine: they're Tasks. Creating a Task is simple enough:
 
