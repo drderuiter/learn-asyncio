@@ -14,7 +14,12 @@ class Incrementer:
         """A very thread-unsafe way to increment a number."""
         logging.info("Task %d started - number is now %d", task_id, self.number)
         number = self.number + 1
-        sleep(0.0001)  # Sleep causes the OS to switch to another thread.
+        """
+        Sleep causes the OS to switch to another thread. In this sense, it behaves a bit
+        like the await keyword for asyncio. However, with asyncio, passing control 
+        back to the event loop is always very explicit.
+        """
+        sleep(0.0001)
         self.number = number
         logging.info("Task %d done - updated number to %d", task_id, self.number)
 

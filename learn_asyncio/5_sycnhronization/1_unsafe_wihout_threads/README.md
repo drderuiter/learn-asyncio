@@ -1,0 +1,4 @@
+# Unsafe without threads
+
+In this subsection, we'll see that we can recreate the unsafe situation from the previous chapter with just `asyncio` code. The problem is conceptually exactly the same: each Task copies the current value of the incrementer, gives control to the event loop, and only continues after the other Tasks copied the shared resource as well. The difference with threading is that here, giving up control is very explicit, as we have to type the `await` keyword to do so. Threading is a _preemptive_ style of concurrency, where the OS decides which thread runs when. Asyncio allows for _cooperative_ concurrency, where each Task must voluntarily return control to the event loop. As usual, both have their pros and cons. An ill-behaving `asyncio` task might block all others - but the intention of an `asyncio` program is very clear, and the developer is in full control.
+
