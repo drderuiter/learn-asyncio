@@ -4,6 +4,7 @@ Learn how to work with Python's asyncio library.
 
 ## Quick start
 
+- Install Python 3.9
 - Clone the repository;
 - Read the README files here, or in your favorite viewer;
 - Run the examples:
