@@ -84,6 +84,7 @@ Concurrency means having your program do multiple things at the same time. Some 
 
 1. Coroutines
 2. Tasks
-3. Gather
-4. Wait
-
+3. Easy concurrency
+4. Threading
+5. Synchronization
+6. Contextvars
