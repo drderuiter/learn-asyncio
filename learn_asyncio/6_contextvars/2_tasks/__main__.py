@@ -21,7 +21,7 @@ async def inner_coroutine(task_id):
     )
 
 
-async def my_coroutine(task_id):
+async def outer_coroutine(task_id):
     logging.info(
         "Task %d: value of '%s' is now '%s'", task_id, dummy_var.name, dummy_var.get()
     )
@@ -32,8 +32,8 @@ async def my_coroutine(task_id):
 
     """
     Let's nest some Tasks! Nothing new here: changes created by the Task that runs 
-    the inner_coroutine are not visible for my_coroutine. The inner_coroutine WILL 
-    see the value set by my_coroutine, as it receives the context as it was at the 
+    the inner_coroutine are not visible for outer_coroutine. The inner_coroutine WILL 
+    see the value set by outer_coroutine, as it receives the context as it was at the 
     moment that its Task was created. 
     """
     await asyncio.create_task(inner_coroutine(task_id))
@@ -56,7 +56,7 @@ async def main():
     """
     logging.info("Value of '%s' is now %s", dummy_var.name, dummy_var.get())
 
-    await asyncio.create_task(my_coroutine(1))
+    await asyncio.create_task(outer_coroutine(1))
     logging.info("Value of '%s' is now %s", dummy_var.name, dummy_var.get())
 
     """

@@ -35,6 +35,8 @@ async def main():
     Once this Future is awaited, all coroutines are wrapped in a Task and awaited 
     together. Only when all Tasks are done is the awaiting of the Future done as well. 
     """
+    logging.info("\n\nEXAMPLE 2 - EXCEPTIONS\n")
+
     coroutines = [download_file(4, 1), download_file(5, 3, True)]
     future = asyncio.gather(*coroutines, return_exceptions=True)
     assert isinstance(future, asyncio.Future)
@@ -47,6 +49,8 @@ async def main():
     The download failed, and the exception was returned by `gather` but not raised.
     Now, let's see what happens without the `return_exceptions` argument.
     """
+    logging.info("\n\nEXAMPLE 3 - RAISING EXCEPTIONS\n")
+
     try:
         for result in await asyncio.gather(
             download_file(6, 1), download_file(7, 3, True)
@@ -61,6 +65,8 @@ async def main():
     It is perfectly possible to "nest" calls to `gather`. For those paying attention:
     that means that `gather` accepts not only coroutines, but also Futures.
     """
+    logging.info("\n\nEXAMPLE 4 - NESTING\n")
+
     await asyncio.gather(
         asyncio.gather(download_file(8, 1), download_file(9, 1)),
         asyncio.gather(download_file(10, 1), download_file(11, 1)),

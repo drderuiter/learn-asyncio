@@ -39,11 +39,11 @@ async def main():
     Note: whichever line we uncomment: it will run BEFORE any task starts.
     """
 
-    "1. Why does this only work if the argument > 1.5?"
-    # await asyncio.sleep(1.6)
+    "1. Why does this only work if the argument > 3.0?"
+    # await asyncio.sleep(3.1)
 
     "2. This won't work: during blocking sleep, the tasks won't run."
-    # sleep(1.6)
+    # sleep(3.1)
 
     """
     3. This is obviously the best solution: we halt main() until both tasks are 
