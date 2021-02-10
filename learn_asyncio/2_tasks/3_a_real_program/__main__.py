@@ -26,7 +26,7 @@ async def main():
 
     for task in tasks:
         await task
-        "How much time is between the log statements, if Task 1 takes the longest? Why?"
+        "How much time is between the log statements for Task 2 and 3? Why?"
         logging.info("Awaited %s", task.get_name())
 
         "For even more details, uncomment the following lines. What is Task-1?"

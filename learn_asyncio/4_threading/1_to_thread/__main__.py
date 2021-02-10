@@ -34,6 +34,8 @@ async def main():
     IO bound task, a thread does not need to run all the time: it only needs to check
     if the task (sleeping, in this case) is done every now and then.
     """
+    logging.info("\n\nEXAMPLE 2 - TO_THREAD\n")
+
     await asyncio.gather(
         asyncio.to_thread(non_awaitable_io_bound_function, 3, 1),
         asyncio.to_thread(non_awaitable_io_bound_function, 4, 2),

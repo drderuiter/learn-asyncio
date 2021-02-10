@@ -21,8 +21,9 @@ async def non_blocking_coroutine():
 async def main():
 
     """
-    These "await" lines run in order. Awaiting passes control to the event loop,
-    but it "blocks" main() like a normal line of code would.
+    These "await" lines run in order. Awaiting something suspends the execution of
+    the coroutine from in which it is done - `main()`, in this case - much like a
+    normal function call would.
     """
     await blocking_coroutine()
     await blocking_coroutine()
