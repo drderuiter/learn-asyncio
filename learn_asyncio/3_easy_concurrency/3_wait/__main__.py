@@ -72,6 +72,7 @@ async def main():
     """
     Another example. Now, only task 4 can cancel task 3, but not the other way around.
     """
+    logging.info("\n\nEXAMPLE 2\n")
     task_3 = asyncio.create_task(download_file(3, 1))
     task_4 = asyncio.create_task(download_file(4, 3))
 
